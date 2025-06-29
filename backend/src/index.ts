@@ -19,6 +19,11 @@ app.get('/', (req, res) => {
   res.send('Financial Analytics Dashboard Backend');
 });
 
+// Health check endpoint for deployment platforms
+app.get('/api/health', (req, res) => {
+  res.status(200).json({ status: 'OK', message: 'Server is running' });
+});
+
 app.use('/api/transactions', transactionRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/export', exportRouter);
